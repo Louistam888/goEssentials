@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 // func main() {
 // 	// fmt.Printf("hello  name")
@@ -147,6 +144,37 @@ func main() {
 
 	// fmt.Printf("%T\n", floatFromString)
 
-	myBool, _ := strconv.ParseBool("t")
-	fmt.Println(myBool)
+	// myBool, _ := strconv.ParseBool("t")
+	// fmt.Println(myBool)
+
+	// const Agency string = "Fast Tracks"
+
+	// const (
+	// 	Agency2 = "fast tracks"
+	// 	Founded = 2001
+	// 	Founder = "James Carter"
+	// ) // multiple consts
+	// fmt.Println(Agency2)
+
+	// const (
+	// 	Economy = iota //iota lets you access index of group of consts
+	// 	Compact
+	// 	Standard
+	// 	FullSize
+	// 	Luxury
+	// )
+
+	// fmt.Println(Economy)
+	// fmt.Println(Compact)
+	// fmt.Println(Standard)
+	// fmt.Println(FullSize)
+	// fmt.Println(Luxury)
+
+	// fmt.Println("whatis yournaem")
+	// var name string
+
+	// fmt.Scanln(&name) 
+	// // gives umemory address like state & is the pointer to name by reference
+
+	//5000
 }
