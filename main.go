@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // func main() {
 // 	// fmt.Printf("hello  name")
@@ -105,9 +108,19 @@ func main() {
 
 	// fmt.Println(temperatureK, temperatureF)
 
-	temperatureF := 70.0
-	temperatureC := (temperatureF - 32) * 5 / 9
-	temperatureK := temperatureC + 273.15
+	// temperatureF := 70.0
+	// temperatureC := (temperatureF - 32) * 5 / 9
+	// temperatureK := temperatureC + 273.15
 
-	fmt.Println(temperatureF, temperatureK)
+	// fmt.Println(temperatureF, temperatureK)
+
+	var temperatureC float64 = 12.15
+	fmt.Println(math.Round(temperatureC))
+	fmt.Println(math.Ceil(temperatureC))  // always round up
+	fmt.Println(math.Floor(temperatureC)) // always round down
+	fmt.Println(math.Abs(-5.5))           // always return positive
+	fmt.Println(math.Pow(3, 2))           // power of firsttosecond
+	fmt.Println(math.Sqrt(16))           // squareroot
 }
+
+//4000
