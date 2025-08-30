@@ -74,12 +74,40 @@ func main() {
 	// temperatureK = float64(temperatureC) + 273.15
 
 	// SOLUTION 2 change vars beforeadding
-	temperatureC2 := 32.0
-	temperatureK2 := 0.0
+	// temperatureC2 := 32.0
+	// temperatureK2 := 0.0
 
-	temperatureK2 = temperatureC2 + 273.15
+	// temperatureK2 = temperatureC2 + 273.15
 
-	fmt.Println("Temperature in C", temperatureC2)
-	fmt.Println("Temperature in K", temperatureK2)
+	// fmt.Println("Temperature in C", temperatureC2)
+	// fmt.Println("Temperature in K", temperatureK2)
 
+	// temperatureK3 := 273.15
+
+	// finalTemp := float64(temperatureK3) - 273.15
+
+	// fmt.Println("Final Temperature in C", finalTemp)
+
+	// temperatureC := 16.0
+	// var temperatureF float64
+	// temperatureF = temperatureC*9/5 + 32
+
+	// fmt.Println(temperatureC, temperatureF)
+
+	// temperatureF := 59.0
+	// temperatureC := (temperatureF - 32)*5/9
+
+	// fmt.Println(temperatureC, temperatureF)
+
+	// temperatureK := 288.15
+	// temperatureC := temperatureK - 273.15
+	// temperatureF := temperatureC*9/5 + 32
+
+	// fmt.Println(temperatureK, temperatureF)
+
+	temperatureF := 70.0
+	temperatureC := (temperatureF - 32) * 5 / 9
+	temperatureK := temperatureC + 273.15
+
+	fmt.Println(temperatureF, temperatureK)
 }
