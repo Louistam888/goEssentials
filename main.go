@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"strconv"
 )
 
 // func main() {
@@ -114,13 +114,39 @@ func main() {
 
 	// fmt.Println(temperatureF, temperatureK)
 
-	var temperatureC float64 = 12.15
-	fmt.Println(math.Round(temperatureC))
-	fmt.Println(math.Ceil(temperatureC))  // always round up
-	fmt.Println(math.Floor(temperatureC)) // always round down
-	fmt.Println(math.Abs(-5.5))           // always return positive
-	fmt.Println(math.Pow(3, 2))           // power of firsttosecond
-	fmt.Println(math.Sqrt(16))           // squareroot
-}
+	// var temperatureC float64 = 12.15
+	// fmt.Println(math.Round(temperatureC))
+	// fmt.Println(math.Ceil(temperatureC))  // always round up
+	// fmt.Println(math.Floor(temperatureC)) // always round down
+	// fmt.Println(math.Abs(-5.5))           // always return positive
+	// fmt.Println(math.Pow(3, 2))           // power of firsttosecond
+	// fmt.Println(math.Sqrt(16))           // squareroot
 
-//4000
+	// var tempInt int = 10
+	// var tempFloat float64 = float64(tempInt)
+
+	// fmt.Println("interger to float", tempFloat)
+	// fmt.Printf("interger to float: %.2f\n", 10.0)
+
+	// fmt.Printf("%T\n", tempInt)
+	// fmt.Printf("%T\n", tempFloat)
+
+	// str := fmt.Sprint(80) //convert to string from int because in Go strings are  runes. youcannot string(convert) an int. use fmt.Sprint
+	// fmt.Println(str)
+	// str2 := strconv.Itoa(10) // or useanotherpackage
+	// fmt.Println(str2)
+
+	//STRING TO IN
+	// var myStr string = "42"
+	// var myIntFromString, _ = strconv.Atoi(myStr) //_ =ignore error value that isreturned
+	// fmt.Println("stringto in", myIntFromString)
+
+	//STRING TO FLOAT
+	// var floatStr string = "3.14159"
+	// var floatFromString, _ = strconv.ParseFloat(floatStr, 64)
+
+	// fmt.Printf("%T\n", floatFromString)
+
+	myBool, _ := strconv.ParseBool("t")
+	fmt.Println(myBool)
+}
