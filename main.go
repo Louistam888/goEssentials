@@ -64,117 +64,157 @@ import "fmt"
 // }
 
 // TEMP CONVERSION C TO K
+// temperatureC := 32
+// temperatureK := 0.0
+
+// temperatureK = temperatureC + 273.15 // this will throw error as we are adding float with int
+
+// SOLUTION 1 typecast
+// temperatureK = float64(temperatureC) + 273.15
+
+// SOLUTION 2 change vars beforeadding
+// temperatureC2 := 32.0
+// temperatureK2 := 0.0
+
+// temperatureK2 = temperatureC2 + 273.15
+
+// fmt.Println("Temperature in C", temperatureC2)
+// fmt.Println("Temperature in K", temperatureK2)
+
+// temperatureK3 := 273.15
+
+// finalTemp := float64(temperatureK3) - 273.15
+
+// fmt.Println("Final Temperature in C", finalTemp)
+
+// temperatureC := 16.0
+// var temperatureF float64
+// temperatureF = temperatureC*9/5 + 32
+
+// fmt.Println(temperatureC, temperatureF)
+
+// temperatureF := 59.0
+// temperatureC := (temperatureF - 32)*5/9
+
+// fmt.Println(temperatureC, temperatureF)
+
+// temperatureK := 288.15
+// temperatureC := temperatureK - 273.15
+// temperatureF := temperatureC*9/5 + 32
+
+// fmt.Println(temperatureK, temperatureF)
+
+// temperatureF := 70.0
+// temperatureC := (temperatureF - 32) * 5 / 9
+// temperatureK := temperatureC + 273.15
+
+// fmt.Println(temperatureF, temperatureK)
+
+// var temperatureC float64 = 12.15
+// fmt.Println(math.Round(temperatureC))
+// fmt.Println(math.Ceil(temperatureC))  // always round up
+// fmt.Println(math.Floor(temperatureC)) // always round down
+// fmt.Println(math.Abs(-5.5))           // always return positive
+// fmt.Println(math.Pow(3, 2))           // power of firsttosecond
+// fmt.Println(math.Sqrt(16))           // squareroot
+
+// var tempInt int = 10
+// var tempFloat float64 = float64(tempInt)
+
+// fmt.Println("interger to float", tempFloat)
+// fmt.Printf("interger to float: %.2f\n", 10.0)
+
+// fmt.Printf("%T\n", tempInt)
+// fmt.Printf("%T\n", tempFloat)
+
+// str := fmt.Sprint(80) //convert to string from int because in Go strings are  runes. youcannot string(convert) an int. use fmt.Sprint
+// fmt.Println(str)
+// str2 := strconv.Itoa(10) // or useanotherpackage
+// fmt.Println(str2)
+
+//STRING TO IN
+// var myStr string = "42"
+// var myIntFromString, _ = strconv.Atoi(myStr) //_ =ignore error value that isreturned
+// fmt.Println("stringto in", myIntFromString)
+
+//STRING TO FLOAT
+// var floatStr string = "3.14159"
+// var floatFromString, _ = strconv.ParseFloat(floatStr, 64)
+
+// fmt.Printf("%T\n", floatFromString)
+
+// myBool, _ := strconv.ParseBool("t")
+// fmt.Println(myBool)
+
+// const Agency string = "Fast Tracks"
+
+// const (
+// 	Agency2 = "fast tracks"
+// 	Founded = 2001
+// 	Founder = "James Carter"
+// ) // multiple consts
+// fmt.Println(Agency2)
+
+// const (
+// 	Economy = iota //iota lets you access index of group of consts
+// 	Compact
+// 	Standard
+// 	FullSize
+// 	Luxury
+// )
+
+// fmt.Println(Economy)
+// fmt.Println(Compact)
+// fmt.Println(Standard)
+// fmt.Println(FullSize)
+// fmt.Println(Luxury)
+
+// fmt.Println("whatis yournaem")
+// var name string
+
+// fmt.Scanln(&name)
+// // gives umemory address like state & is the pointer to name by reference
+
+// var myStringPointer *string // pointer to a string
+// var myString string
+
+// myStringPointer = &myString
+
+// func sayHello(s string) {
+// 	fmt.Println(s)
+// }
+
+// func sayHelloPointer(s *string) {
+// 	*s = "Hello, World"
+// }
+
+// func main() {
+// 	var greeting string = "hello GO"
+// 	sayHello(greeting)
+// 	fmt.Println("after calling  sayhello,", greeting)
+// 	sayHelloPointer(&greeting)
+// 	fmt.Println("after calling  sayhelloPointer,", greeting)
+// }
+
+// func main () {
+// 	var stringPtr *string
+// 	var intPtr *int
+// 	var floatPtr *float64
+// 	var boolPtr *bool
+
+// 	// all return nil
+// }
+
 func main() {
-	// temperatureC := 32
-	// temperatureK := 0.0
+	const upperSpeedLimit, lowerSpeedimit int = 120, 80
 
-	// temperatureK = temperatureC + 273.15 // this will throw error as we are adding float with int
+	speed := 120
 
-	// SOLUTION 1 typecast
-	// temperatureK = float64(temperatureC) + 273.15
-
-	// SOLUTION 2 change vars beforeadding
-	// temperatureC2 := 32.0
-	// temperatureK2 := 0.0
-
-	// temperatureK2 = temperatureC2 + 273.15
-
-	// fmt.Println("Temperature in C", temperatureC2)
-	// fmt.Println("Temperature in K", temperatureK2)
-
-	// temperatureK3 := 273.15
-
-	// finalTemp := float64(temperatureK3) - 273.15
-
-	// fmt.Println("Final Temperature in C", finalTemp)
-
-	// temperatureC := 16.0
-	// var temperatureF float64
-	// temperatureF = temperatureC*9/5 + 32
-
-	// fmt.Println(temperatureC, temperatureF)
-
-	// temperatureF := 59.0
-	// temperatureC := (temperatureF - 32)*5/9
-
-	// fmt.Println(temperatureC, temperatureF)
-
-	// temperatureK := 288.15
-	// temperatureC := temperatureK - 273.15
-	// temperatureF := temperatureC*9/5 + 32
-
-	// fmt.Println(temperatureK, temperatureF)
-
-	// temperatureF := 70.0
-	// temperatureC := (temperatureF - 32) * 5 / 9
-	// temperatureK := temperatureC + 273.15
-
-	// fmt.Println(temperatureF, temperatureK)
-
-	// var temperatureC float64 = 12.15
-	// fmt.Println(math.Round(temperatureC))
-	// fmt.Println(math.Ceil(temperatureC))  // always round up
-	// fmt.Println(math.Floor(temperatureC)) // always round down
-	// fmt.Println(math.Abs(-5.5))           // always return positive
-	// fmt.Println(math.Pow(3, 2))           // power of firsttosecond
-	// fmt.Println(math.Sqrt(16))           // squareroot
-
-	// var tempInt int = 10
-	// var tempFloat float64 = float64(tempInt)
-
-	// fmt.Println("interger to float", tempFloat)
-	// fmt.Printf("interger to float: %.2f\n", 10.0)
-
-	// fmt.Printf("%T\n", tempInt)
-	// fmt.Printf("%T\n", tempFloat)
-
-	// str := fmt.Sprint(80) //convert to string from int because in Go strings are  runes. youcannot string(convert) an int. use fmt.Sprint
-	// fmt.Println(str)
-	// str2 := strconv.Itoa(10) // or useanotherpackage
-	// fmt.Println(str2)
-
-	//STRING TO IN
-	// var myStr string = "42"
-	// var myIntFromString, _ = strconv.Atoi(myStr) //_ =ignore error value that isreturned
-	// fmt.Println("stringto in", myIntFromString)
-
-	//STRING TO FLOAT
-	// var floatStr string = "3.14159"
-	// var floatFromString, _ = strconv.ParseFloat(floatStr, 64)
-
-	// fmt.Printf("%T\n", floatFromString)
-
-	// myBool, _ := strconv.ParseBool("t")
-	// fmt.Println(myBool)
-
-	// const Agency string = "Fast Tracks"
-
-	// const (
-	// 	Agency2 = "fast tracks"
-	// 	Founded = 2001
-	// 	Founder = "James Carter"
-	// ) // multiple consts
-	// fmt.Println(Agency2)
-
-	// const (
-	// 	Economy = iota //iota lets you access index of group of consts
-	// 	Compact
-	// 	Standard
-	// 	FullSize
-	// 	Luxury
-	// )
-
-	// fmt.Println(Economy)
-	// fmt.Println(Compact)
-	// fmt.Println(Standard)
-	// fmt.Println(FullSize)
-	// fmt.Println(Luxury)
-
-	// fmt.Println("whatis yournaem")
-	// var name string
-
-	// fmt.Scanln(&name) 
-	// // gives umemory address like state & is the pointer to name by reference
-
-	//5000
+	if speed > upperSpeedLimit {
+		fmt.Println("too fast")
+	} else if speed < upperSpeedLimit {
+		fmt.Println("too slow")
+	} else {
+		fmt.Println("hit the gas")
+	} 
 }
