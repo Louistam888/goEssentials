@@ -205,16 +205,33 @@ import "fmt"
 // 	// all return nil
 // }
 
+// func main() {
+// 	const upperSpeedLimit, lowerSpeedimit int = 120, 80
+
+// 	speed := 120
+
+// 	if speed > upperSpeedLimit {
+// 		fmt.Println("too fast")
+// 	} else if speed < upperSpeedLimit {
+// 		fmt.Println("too slow")
+// 	} else {
+// 		fmt.Println("hit the gas")
+// 	} 
+// }
+
+
 func main() {
-	const upperSpeedLimit, lowerSpeedimit int = 120, 80
+	color := "red"
 
-	speed := 120
+	switch color  {
+	case "red": 
+		fmt.Println("red")
+	case "green": 
+		fmt.Println("green")
 
-	if speed > upperSpeedLimit {
-		fmt.Println("too fast")
-	} else if speed < upperSpeedLimit {
-		fmt.Println("too slow")
-	} else {
-		fmt.Println("hit the gas")
-	} 
+	default: 
+		fmt.Println("uknown")
+	}
 }
+
+//120
