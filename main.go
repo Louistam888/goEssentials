@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // func main() {
 // 	// fmt.Printf("hello  name")
 // 	// var agency string = "Fast Track"
@@ -216,22 +214,55 @@ import "fmt"
 // 		fmt.Println("too slow")
 // 	} else {
 // 		fmt.Println("hit the gas")
-// 	} 
+// 	}
 // }
 
+// func main() {
+// 	color := "red"
+
+// 	switch color  {
+// 	case "red":
+// 		fmt.Println("red")
+// 	case "green":
+// 		fmt.Println("green")
+
+// 	default:
+// 		fmt.Println("uknown")
+// 	}
+// }
+
+// func main() {
+// 	for i := 0; i < 10; i++ {
+// 		if i%2 == 0 {
+// 			continue
+// 		}
+// 		fmt.Println("odd number", i)
+// 	}
+// }
+
+//while loop
+// func main() {
+// 	i := 0
+// 	for {
+// 		fmt.Println("infitnite loop", i)
+// 		i++
+
+// 		if i == 3 {
+// 			break
+// 		}
+// 	}
+// }
+
+// func main() {
+// 	var bodyTypes = [3]string{"sedan", "suv", "convertible"}
+
+// 	// bodyTypes[0] = "sedan"
+// 	// bodyTypes[1] = "suv"
+// 	// bodyTypes[2] = "convertible"
+
+// 	fmt.Println(bodyTypes)
+// }
 
 func main() {
-	color := "red"
 
-	switch color  {
-	case "red": 
-		fmt.Println("red")
-	case "green": 
-		fmt.Println("green")
-
-	default: 
-		fmt.Println("uknown")
-	}
 }
-
-//120
