@@ -266,21 +266,42 @@ import "fmt"
 // }
 
 //2D array
+// func main() {
+// 	var carFleet [3][2]string
+// 	carFleet[0] = [2]string{"5 Sedans available", "2 sedans booked"}
+// 	carFleet[1] = [2]string{"3 SUVs available", "4 SUVs booked"}
+// 	carFleet[2] = [2]string{"1 convertible available", "1 convertibles booked"}
+
+// 	fmt.Println("carfleet status:")
+
+// 	for i := 0; i < len(carFleet); i++ {
+// 		row := carFleet[i]
+// 		for j := 0; j < len(row); j++ {
+// 			fmt.Printf("%v ", row[j])
+// 		}
+// 		fmt.Println()
+// 	}
+// }
+
+//SLICES
+// func main() {
+// 	var fuelTypes = []string{"Electric", "Gasoline", "Hybrid"}
+// 	fmt.Println(fuelTypes)
+
+// 	fuelTypes = append(fuelTypes, "Diesel", "hydrogen")
+// 	fmt.Println(fuelTypes)
+// }
+
 func main() {
-	var carFleet [3][2]string
-	carFleet[0] = [2]string{"5 Sedans available", "2 sedans booked"}
-	carFleet[1] = [2]string{"3 SUVs available", "4 SUVs booked"}
-	carFleet[2] = [2]string{"1 convertible available", "1 convertibles booked"}
+	fuelTypes := make([]string, 3) // makesarray with predeifne len 3
+	fuelTypes = append(fuelTypes, "one", "two", "three")
+	fuelTypes[0] = "electric"
+	fuelTypes[1] = "diesel"
+	fmt.Println(fuelTypes)
 
-	fmt.Println("carfleet status:")
-
-	for i := 0; i < len(carFleet); i++ {
-		row := carFleet[i]
-		for j := 0; j < len(row); j++ {
-			fmt.Printf("%v ", row[j])
-		}
-		fmt.Println()
-	}
+	fuelTypesCopy := make([]string, len(fuelTypes))
+	copy(fuelTypesCopy, fuelTypes)
+	fmt.Println(fuelTypesCopy)
 }
 
-//142
+//147
