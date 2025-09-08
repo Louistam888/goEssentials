@@ -292,16 +292,115 @@ import "fmt"
 // 	fmt.Println(fuelTypes)
 // }
 
-func main() {
-	fuelTypes := make([]string, 3) // makesarray with predeifne len 3
-	fuelTypes = append(fuelTypes, "one", "two", "three")
-	fuelTypes[0] = "electric"
-	fuelTypes[1] = "diesel"
-	fmt.Println(fuelTypes)
+// func main() {
+// 	fuelTypes := make([]string, 3) // makesarray with predeifne len 3
+// 	fuelTypes = append(fuelTypes, "one", "two", "three")
+// 	fuelTypes[0] = "electric"
+// 	fuelTypes[1] = "diesel"
+// 	fmt.Println(fuelTypes)
 
-	fuelTypesCopy := make([]string, len(fuelTypes))
-	copy(fuelTypesCopy, fuelTypes)
-	fmt.Println(fuelTypesCopy)
+// 	fuelTypesCopy := make([]string, len(fuelTypes))
+// 	copy(fuelTypesCopy, fuelTypes)
+// 	fmt.Println(fuelTypesCopy)
+// }
+
+// func main() {
+// 	fuelTypes := []string{"gas", "diesel", "electric", "hybrid", "hydrogen"}
+
+// 	popular := fuelTypes[0:2]
+
+// 	fmt.Println("popular:", popular)
+
+// 	clean := fuelTypes[2:]
+// 	fmt.Println("clean:", clean)
+
+// 	electric := fuelTypes[2:4]
+// 	fmt.Println("electric:", electric)
+// }
+
+//MAPS
+// func main() {
+// 	carInventory := map[string]int{
+
+// 		"Sedan":       25,
+// 		"SUV":         15,
+// 		"Convertible": 10,
+// 	}
+
+// fmt.Println("car inventory:", carInventory)
+// fmt.Println("types", len(carInventory))
+
+// numberofSedans := carInventory["Sedan"]
+// fmt.Printf("we have %v sedans\n", numberofSedans)
+
+// carInventory["Sedan"] = 20
+
+// numberofSedans2 := carInventory["Sedan"]
+// fmt.Printf("we have %v sedans\n", numberofSedans2)
+
+// delete(carInventory, "Convertible")
+
+// fmt.Println(carInventory)
+
+// numSedans, sedanFound := carInventory["Sedan"]
+// fmt.Println("sedans found", sedanFound)
+
+// if sedanFound {
+// 	fmt.Println("We have", numSedans)
+// }
+
+//cCOMMON PATTERN FOR MAPS
+// if numSedans, ok := carInventory["Sedan"]; ok { // ok is just avaribale name to check if carinventory sedan istruthy. the second ok is if true
+// 	fmt.Println("we have", numSedans, "Sedans")
+// }
+
+//FOR RANGE LOOP FOR ARRAYS SLICES AND MAPS
+
+// func main() {
+// 	bodyTypes := [3]string{"Sedan", "SUV", "Convertible"}
+
+// 	for i, bodyType := range bodyTypes {
+// 		fmt.Printf("Index: %v. Item: %v\n", i, bodyType)
+// 	}
+
+// 	//this captures indexes only
+// 	for i := range bodyTypes {
+// 		fmt.Printf("Index: %v\n", i)
+// 	}
+
+// 	//forvalue only notindex
+
+// 	for _, bodyType:= range bodyTypes {
+// 		fmt.Printf("Index: %v\n", bodyType)
+// 	}
+
+// }
+
+//RANGE LOOP FOR MAPS
+func main() {
+
+	carInventory := map[string]int{
+		"Sedan":       25,
+		"SUV":         7,
+		"Convertible": 10,
+		"Hatchback":   8,
+	}
+
+	//to call both value and key
+	for bodyType, count := range carInventory {
+		fmt.Printf("%v -> %v\n", bodyType, count)
+	}
+
+	//KEY ONLY
+	for bodyType := range carInventory {
+		fmt.Printf("%v\n", bodyType)
+	}
+	//VALUE ONLY
+	totalInventory := 0
+	for _, count := range carInventory {
+		totalInventory += count
+	}
+	fmt.Printf("%v cars in total\n", totalInventory)
 }
 
-//147
+//157
