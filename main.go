@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // func main() {
 // 	// fmt.Printf("hello  name")
 // 	// var agency string = "Fast Track"
@@ -377,30 +375,99 @@ import "fmt"
 // }
 
 //RANGE LOOP FOR MAPS
-func main() {
+// func main() {
 
-	carInventory := map[string]int{
-		"Sedan":       25,
-		"SUV":         7,
-		"Convertible": 10,
-		"Hatchback":   8,
-	}
+// 	carInventory := map[string]int{
+// 		"Sedan":       25,
+// 		"SUV":         7,
+// 		"Convertible": 10,
+// 		"Hatchback":   8,
+// 	}
 
-	//to call both value and key
-	for bodyType, count := range carInventory {
-		fmt.Printf("%v -> %v\n", bodyType, count)
-	}
+// 	//to call both value and key
+// 	for bodyType, count := range carInventory {
+// 		fmt.Printf("%v -> %v\n", bodyType, count)
+// 	}
 
-	//KEY ONLY
-	for bodyType := range carInventory {
-		fmt.Printf("%v\n", bodyType)
-	}
-	//VALUE ONLY
-	totalInventory := 0
-	for _, count := range carInventory {
-		totalInventory += count
-	}
-	fmt.Printf("%v cars in total\n", totalInventory)
-}
+// 	//KEY ONLY
+// 	for bodyType := range carInventory {
+// 		fmt.Printf("%v\n", bodyType)
+// 	}
+// 	//VALUE ONLY
+// 	totalInventory := 0
+// 	for _, count := range carInventory {
+// 		totalInventory += count
+// 	}
+// 	fmt.Printf("%v cars in total\n", totalInventory)
+// }
 
-//157
+//FUNCTIONS
+
+// var carInventory = map[string]int{}
+
+// func addToInventory(bodyType string, count int) {
+// 	carInventory[bodyType] += count
+// 	fmt.Println(bodyType, "added. New count:", carInventory[bodyType])
+// }
+// func main() {
+// 	addToInventory("Sedan", 10)
+// 	addToInventory("SUV", 7)
+// 	addToInventory("Sedan", 2)
+// 	fmt.Println("Updated Car Inventory", carInventory)
+// }
+
+//RETURNING VARIABLES
+// var carInventory = map[string]int{}
+
+// func addToInventory(bodyType string, count int) {
+// 	carInventory[bodyType] += count
+// 	fmt.Println(bodyType, "added. New count:", carInventory[bodyType])
+// }
+
+// func getCount(bodyType string) int {
+// 	fmt.Printf("looking up %v", bodyType)
+// 	count := carInventory[bodyType]
+// 	return count
+// }
+
+// func main() {
+// 	addToInventory("Coupe", 3)
+// 	fmt.Println("Found:", getCount("Coupe"))
+// }
+
+//RETURNING MULTIPLE TYPES OF VARIABLES
+
+// var carInventory = map[string]int{}
+
+// func getCount(bodyType string) int {
+// 	count := carInventory[bodyType]
+// 	return count
+// }
+
+// func getStatus(bodyType string) (available string, booked string) {
+// 	status := carFleet[bodyType]
+// 	return available, booked
+// }
+
+// func main() {
+// 	addToFleet("Sedan", 5, 2)
+// 	available, booked := getStatus("Sedan")
+// 	fmt.Println(available)
+// 	fmt.Println(booked)
+// }
+
+//VARIADIC FUNCTION - accepts ininifite arguments
+// import "fmt"
+
+// func sum(numbers ...int) int {
+// 	total := 0
+// 	for _, n := range numbers {
+// 		total += n
+// 	}
+
+// 	return total
+// }
+
+// func main() {
+// 	fmt.Println(sum(1, 2, 3, 43, 4, 4))
+// }
