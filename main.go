@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // func main() {
 // 	// fmt.Printf("hello  name")
 // 	// var agency string = "Fast Track"
@@ -641,42 +643,115 @@ package main
 // }
 
 //238 interfaces just let data flow through unlike structswhich store data
-import "fmt"
+// import "fmt"
 
-// 1️⃣ Define an interface
-type Greeter interface {
-	Greet()
-}
+// // 1️⃣ Define an interface
+// type Greeter interface {
+// 	Greet()
+// }
 
-// 2️⃣ Person type
-type Person struct {
-	Name string
-}
+// // 2️⃣ Person type
+// type Person struct {
+// 	Name string
+// }
 
-// 3️⃣ Robot type
-type Robot struct {
-	ID int
-}
+// // 3️⃣ Robot type
+// type Robot struct {
+// 	ID int
+// }
 
-//IN ORDER TO MAKE INTERFACE WORK AS A REUSABLE FUNCITON WITH MULTIPLE TYPES, YOU NEED TO DECLARE  TEH SAME METHOD WITHIN FOR ALL POSSIBLE CASES USING THE METHOD NAME
-func (p Person) Greet() {
-	fmt.Println("Hi, I'm", p.Name)
-}
+// //IN ORDER TO MAKE INTERFACE WORK AS A REUSABLE FUNCITON WITH MULTIPLE TYPES, YOU NEED TO DECLARE  TEH SAME METHOD WITHIN FOR ALL POSSIBLE CASES USING THE METHOD NAME
+// func (p Person) Greet() {
+// 	fmt.Println("Hi, I'm", p.Name)
+// }
 
-// Robot implements Greet()
-func (r Robot) Greet() {
-	fmt.Println("Beep boop, I am robot #", r.ID)
-}
+// // Robot implements Greet()
+// func (r Robot) Greet() {
+// 	fmt.Println("Beep boop, I am robot #", r.ID)
+// }
 
-// 4️⃣ Function that works with any Greeter
-func SayHello(g Greeter) {
-	g.Greet() // just call the method
+// // 4️⃣ Function that works with any Greeter
+// func SayHello(g Greeter) {
+// 	g.Greet() // just call the method
+// }
+
+// func main() {
+// 	alice := Person{"Alice"}
+// 	r2d2 := Robot{42}
+
+// 	SayHello(alice) // Hi, I'm Alice
+// 	SayHello(r2d2)  // Beep boop, I am robot # 42
+// }
+
+// type error interface{
+// 	Error() string
+// }
+
+// type APIError struct {
+// 	Message string
+// 	Code    int
+// }
+
+// func (e *APIError) Error() string {
+// 	return fmt.Sprintf("hello code %d: %s", e.Code, e.Message)
+// }
+
+// func makeRequest() error {
+// 	return &APIError{Code: 404, Message: "not found"}
+// }
+
+// func main() {
+// 	err := makeRequest()
+// 	fmt.Println(err)
+// }
+
+// EMPTY INTERFACE MEANS ANY TYPE
+
+// func doSomething(v interface{}) {
+// 	fmt.Println(v)
+// }
+
+// func main() {
+// 	doSomething("Hello")
+// 	doSomething(123)
+// 	doSomething(4.5)
+// }
+
+//TYPE ASSERTION
+
+// func main() {
+// 	var i interface{} = "hello"
+// 	s := i.(string) //type assertion - forces string type onto anyinterface
+// 	fmt.Println(s)
+
+// 	s, ok := i.(string)
+// 	fmt.Println(s, ok)
+
+// 	f, ok := i.(float64)
+// 	fmt.Println(f, ok)
+
+// 	//this will cause panic
+// 	// f = i.(float64)
+// 	// fmt.Println(f)
+// }
+
+//TYPE SWITCH
+func do(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Println(v, v*2)
+
+	case string:
+		fmt.Println(v, len(v))
+	default:
+		fmt.Println("dunno", v)
+	}
 }
 
 func main() {
-	alice := Person{"Alice"}
-	r2d2 := Robot{42}
-
-	SayHello(alice) // Hi, I'm Alice
-	SayHello(r2d2)  // Beep boop, I am robot # 42
+	do(21)
+	do("hellp")
+	do(true)
 }
+
+//246
