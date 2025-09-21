@@ -508,137 +508,175 @@ package main
 // 	fmt.Println(f(), f(), f(), f(), f())
 // }
 
-//STRUCTS
-import (
-	"errors"
-	"fmt"
-	"time"
-)
+// //STRUCTS
+// import (
+// 	"errors"
+// 	"fmt"
+// 	"time"
+// )
 
-type AuditInfo struct {
-	CreatedAt    time.Time
-	LastModified time.Time
+// type AuditInfo struct {
+// 	CreatedAt    time.Time
+// 	LastModified time.Time
+// }
+
+// type BankAccount struct {
+// 	AccountNumber AccountNumber
+// 	Balance       float64
+// 	AuditInfo
+// }
+
+// type Customer struct {
+// 	Name     string
+// 	accounts []*BankAccount
+// 	AuditInfo
+// }
+
+// type Bank struct {
+// 	Name      string
+// 	Customers []*Customer
+// }
+
+// type AccountNumber string
+// type Balance = float64 //type alias assigns a name toa float so ucan write func (balance balance) instead of (balance float64)
+
+// // putting the name aftert he argument makes theargument a reciever. binds it to the fucntion displayBalance so  you can call it as account.displayBalnace() instaed ofdisplayBalnace(account)
+// func (ba BankAccount) DisplayBalance() {
+// 	fmt.Printf("Account number: %s, Balance: $%.2f\n", ba.AccountNumber, ba.Balance)
+// }
+
+// func (ba *BankAccount) Deposit(amount float64) {
+// 	ba.Balance += amount
+// }
+
+// func (ba *BankAccount) Withdraw(amount float64) error {
+// 	if ba.Balance < amount {
+// 		return errors.New("NSF")
+// 	}
+// 	ba.Balance -= amount
+// 	return nil
+// }
+
+// func (c *Customer) AddAccount(account *BankAccount) {
+// 	c.accounts = append(c.accounts, account)
+// }
+
+// func (c Customer) DisplayAccounts() {
+// 	fmt.Printf("Customer: %s\n", c.Name)
+// 	for _, account := range c.accounts {
+// 		account.DisplayBalance()
+// 	}
+// }
+
+// func NewBank(name string) *Bank {
+// 	return &Bank{Name: "GoBank"}
+// }
+
+// func NewCustomer(name string) *Customer {
+// 	return &Customer{
+// 		Name:      name,
+// 		AuditInfo: AuditInfo{CreatedAt: time.Now(), LastModified: time.Now()},
+// 	}
+// }
+
+// func NewBankAccount(num AccountNumber) *BankAccount {
+// 	return &BankAccount{
+// 		AccountNumber: num,
+// 		AuditInfo:     AuditInfo{CreatedAt: time.Now(), LastModified: time.Now()},
+// 	}
+// }
+
+// func (a AccountNumber) isValid() bool {
+// 	return len(string(a)) == 10
+// }
+
+// func main() {
+
+// bank := NewBank("Go Bank")
+// customer1 := NewCustomer("Alice")
+// customer2 := NewCustomer("Bob")
+
+// account1 := NewBankAccount("834354")
+// account1.Deposit(1000.00)
+
+// account2 := NewBankAccount("8343345")
+// account2.Deposit(5000.00)
+
+// customer1.AddAccount(*account1)
+// customer2.AddAccount(*account2)
+
+// bank.AddCustomer(*customer1)
+// bank.AddCustomer(*customer2)
+
+// var acct AccountNumber
+// fmt.Printf("acct is %T\n", acct)
+
+// var acct2 string
+// fmt.Printf("acct2 is %T\n", acct)
+
+// account := NewBankAccount("4234234")
+// fmt.Println("THIS IS", account.AccountNumber.isValid())
+// 	account := BankAccount{AccountNumber: "12324324", Balance: 1000.00}
+// 	fmt.Println(account.Balance, account.AccountNumber)
+
+// 	account.DisplayBalance()
+
+// 	// account2 := &BankAccount{AccountNumber: "8978945", Balance: 500.99}
+// 	// account3 := &BankAccount{AccountNumber: "89234234234235", Balance: 6500.99, AuditInfo: AuditInfo{createdAt: time.Now(), LastModified: time.Now()}}
+// 	account.DisplayBalance()
+// 	account.Deposit(1000)
+// 	account.DisplayBalance()
+
+// 	//add accts to customer
+// 	customer1.AddAccount(account1)
+// 	customer2.AddAccount(account2)
+
+// 	//add customers tothebank
+
+// bank.AddCustomer(customer1)
+// bank.AddCustomer(customer2)
+
+// bank.DisplayCustomers()
+// fmt.Println(account3.createdAt)
+// }
+
+//238 interfaces just let data flow through unlike structswhich store data
+import "fmt"
+
+// 1️⃣ Define an interface
+type Greeter interface {
+	Greet()
 }
 
-type BankAccount struct {
-	AccountNumber AccountNumber
-	Balance       float64
-	AuditInfo
+// 2️⃣ Person type
+type Person struct {
+	Name string
 }
 
-type Customer struct {
-	Name     string
-	accounts []*BankAccount
-	AuditInfo
+// 3️⃣ Robot type
+type Robot struct {
+	ID int
 }
 
-type Bank struct {
-	Name      string
-	Customers []*Customer
+//IN ORDER TO MAKE INTERFACE WORK AS A REUSABLE FUNCITON WITH MULTIPLE TYPES, YOU NEED TO DECLARE  TEH SAME METHOD WITHIN FOR ALL POSSIBLE CASES USING THE METHOD NAME
+func (p Person) Greet() {
+	fmt.Println("Hi, I'm", p.Name)
 }
 
-type AccountNumber string
-type Balance = float64 //type alias assigns a name toa float so ucan write func (balance balance) instead of (balance float64)
-
-// putting the name aftert he argument makes theargument a reciever. binds it to the fucntion displayBalance so  you can call it as account.displayBalnace() instaed ofdisplayBalnace(account)
-func (ba BankAccount) DisplayBalance() {
-	fmt.Printf("Account number: %s, Balance: $%.2f\n", ba.AccountNumber, ba.Balance)
+// Robot implements Greet()
+func (r Robot) Greet() {
+	fmt.Println("Beep boop, I am robot #", r.ID)
 }
 
-func (ba *BankAccount) Deposit(amount float64) {
-	ba.Balance += amount
-}
-
-func (ba *BankAccount) Withdraw(amount float64) error {
-	if ba.Balance < amount {
-		return errors.New("NSF")
-	}
-	ba.Balance -= amount
-	return nil
-}
-
-func (c *Customer) AddAccount(account *BankAccount) {
-	c.accounts = append(c.accounts, account)
-}
-
-func (c Customer) DisplayAccounts() {
-	fmt.Printf("Customer: %s\n", c.Name)
-	for _, account := range c.accounts {
-		account.DisplayBalance()
-	}
-}
-
-func NewBank(name string) *Bank {
-	return &Bank{Name: "GoBank"}
-}
-
-func NewCustomer(name string) *Customer {
-	return &Customer{
-		Name:      name,
-		AuditInfo: AuditInfo{CreatedAt: time.Now(), LastModified: time.Now()},
-	}
-}
-
-func NewBankAccount(num AccountNumber) *BankAccount {
-	return &BankAccount{
-		AccountNumber: num,
-		AuditInfo:     AuditInfo{CreatedAt: time.Now(), LastModified: time.Now()},
-	}
-}
-
-func (a AccountNumber) isValid() bool {
-	return len(string(a)) == 10
+// 4️⃣ Function that works with any Greeter
+func SayHello(g Greeter) {
+	g.Greet() // just call the method
 }
 
 func main() {
+	alice := Person{"Alice"}
+	r2d2 := Robot{42}
 
-	// bank := NewBank("Go Bank")
-	// customer1 := NewCustomer("Alice")
-	// customer2 := NewCustomer("Bob")
-
-	// account1 := NewBankAccount("834354")
-	// account1.Deposit(1000.00)
-
-	// account2 := NewBankAccount("8343345")
-	// account2.Deposit(5000.00)
-
-	// customer1.AddAccount(*account1)
-	// customer2.AddAccount(*account2)
-
-	// bank.AddCustomer(*customer1)
-	// bank.AddCustomer(*customer2)
-
-	// var acct AccountNumber
-	// fmt.Printf("acct is %T\n", acct)
-
-	// var acct2 string
-	// fmt.Printf("acct2 is %T\n", acct)
-
-	account := NewBankAccount("4234234")
-	fmt.Println("THIS IS", account.AccountNumber.isValid())
-	// 	account := BankAccount{AccountNumber: "12324324", Balance: 1000.00}
-	// 	fmt.Println(account.Balance, account.AccountNumber)
-
-	// 	account.DisplayBalance()
-
-	// 	// account2 := &BankAccount{AccountNumber: "8978945", Balance: 500.99}
-	// 	// account3 := &BankAccount{AccountNumber: "89234234234235", Balance: 6500.99, AuditInfo: AuditInfo{createdAt: time.Now(), LastModified: time.Now()}}
-	// 	account.DisplayBalance()
-	// 	account.Deposit(1000)
-	// 	account.DisplayBalance()
-
-	// 	//add accts to customer
-	// 	customer1.AddAccount(account1)
-	// 	customer2.AddAccount(account2)
-
-	// 	//add customers tothebank
-
-	// bank.AddCustomer(customer1)
-	// bank.AddCustomer(customer2)
-
-	// bank.DisplayCustomers()
-	// fmt.Println(account3.createdAt)
+	SayHello(alice) // Hi, I'm Alice
+	SayHello(r2d2)  // Beep boop, I am robot # 42
 }
-
-
-//238 interfaces just let data flow through unlike structswhich store data
