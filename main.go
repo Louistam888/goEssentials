@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 // func main() {
 // 	// fmt.Printf("hello  name")
@@ -736,22 +739,60 @@ import "fmt"
 // }
 
 //TYPE SWITCH
-func do(i interface{}) {
-	switch v := i.(type) {
-	case int:
-		fmt.Println(v, v*2)
+// func do(i interface{}) {
+// 	switch v := i.(type) {
+// 	case int:
+// 		fmt.Println(v, v*2)
 
-	case string:
-		fmt.Println(v, len(v))
-	default:
-		fmt.Println("dunno", v)
-	}
+// 	case string:
+// 		fmt.Println(v, len(v))
+// 	default:
+// 		fmt.Println("dunno", v)
+// 	}
+// }
+
+// func main() {
+// 	do(21)
+// 	do("hellp")
+// 	do(true)
+// }
+
+//GENERICS - HERE DELETEFUNC ISA GENERIC - REUSABLE FUNCTION
+
+// func main() {
+// 	bodyTypes := []string{"Sedan", "SUV", "Convertible", "Hatchback", "Coupe"}
+// 	fmt.Println("original slice", bodyTypes)
+
+// 	//remove convertible
+// 	bodyTypes = slices.DeleteFunc(bodyTypes, func(s string) bool {
+// 		if s == "Convertible" {
+// 			return true
+// 		} else {
+// 			return false
+// 		}
+// 	}) //deleteFunc is from slicespage
+
+// 	fmt.Println("slice after deletiopn", bodyTypes)
+// }
+
+type BankAccount struct {
+	accountNumber string
+	balance       float64
 }
 
 func main() {
-	do(21)
-	do("hellp")
-	do(true)
-}
+	accounts := []BankAccount{
+		{accountNumber: "112", balance: 1000},
+		{accountNumber: "113", balance: 2000},
+		{accountNumber: "114", balance: 3000},
+	}
 
-//246
+	fmt.Println(accounts)
+
+	accounts = slices.DeleteFunc(accounts, func(ba BankAccount) bool { //anon function DELECEFUCN TAKES TWO PARAMS - SLIECE TO DELETFROM, FUNCTION TO DECIDE WHAT TORMOVE
+		return ba.accountNumber == "112" // IF RETURNS TRUE THATELEMENT WILL BE DELETED
+	})
+
+	fmt.Println("cleanred", accounts)
+}
+//250
