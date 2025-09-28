@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"slices"
-)
-
 // func main() {
 // 	// fmt.Printf("hello  name")
 // 	// var agency string = "Fast Track"
@@ -775,24 +770,64 @@ import (
 // 	fmt.Println("slice after deletiopn", bodyTypes)
 // }
 
-type BankAccount struct {
-	accountNumber string
-	balance       float64
-}
+// type BankAccount struct {
+// 	accountNumber string
+// 	balance       float64
+// }
 
-func main() {
-	accounts := []BankAccount{
-		{accountNumber: "112", balance: 1000},
-		{accountNumber: "113", balance: 2000},
-		{accountNumber: "114", balance: 3000},
-	}
+// func main() {
+// 	accounts := []BankAccount{
+// 		{accountNumber: "112", balance: 1000},
+// 		{accountNumber: "113", balance: 2000},
+// 		{accountNumber: "114", balance: 3000},
+// 	}
 
-	fmt.Println(accounts)
+// 	fmt.Println(accounts)
 
-	accounts = slices.DeleteFunc(accounts, func(ba BankAccount) bool { //anon function DELECEFUCN TAKES TWO PARAMS - SLIECE TO DELETFROM, FUNCTION TO DECIDE WHAT TORMOVE
-		return ba.accountNumber == "112" // IF RETURNS TRUE THATELEMENT WILL BE DELETED
-	})
+// 	accounts = slices.DeleteFunc(accounts, func(ba BankAccount) bool { //anon function DELECEFUCN TAKES TWO PARAMS - SLIECE TO DELETFROM, FUNCTION TO DECIDE WHAT TORMOVE
+// 		return ba.accountNumber == "112" // IF RETURNS TRUE THATELEMENT WILL BE DELETED
+// 	})
 
-	fmt.Println("cleanred", accounts)
-}
-//250
+// 	fmt.Println("cleanred", accounts)
+// }
+// //
+
+//GENERICS
+// func DeleteFunc[SliceType ~[]ElementType, ElementType any](
+//     slice SliceType,
+//     shouldDelete func(ElementType) bool,
+// ) SliceType {
+//     for i, elem := range slice {
+//         if shouldDelete(elem) {
+//             writeIndex := i
+//             for i++; i < len(slice); i++ {
+//                 elem = slice[i]
+//                 if !shouldDelete(elem) {
+//                     slice[writeIndex] = elem
+//                     writeIndex++
+//                 }
+//             }
+//             return slice[:writeIndex]
+//         }
+//     }
+//     return slice
+// }
+
+
+// func DeleteFunc[S ~[]E, E any](s S, del func(E) bool) S {
+// 	for i, v := range s {
+// 		if del(v) {
+// 			j := i
+// 			for i++; i < len(s); i++ {
+// 				v = s[i]
+// 				if !del(v) {
+// 					s[j] = v
+// 					j++
+// 				}
+
+// 			}
+// 			return s[:j]
+// 		}
+// 	}
+// 	return s
+// }
