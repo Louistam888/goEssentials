@@ -833,7 +833,9 @@
 
 package main
 
-import "example/hello/bnk"
+import (
+	"github.com/louistam888/bnk/bnk"
+)
 
 func main() {
 	bank := bnk.NewBank("Go Bank")
@@ -852,6 +854,6 @@ func main() {
 
 	bank.AddCustomer(*customer1)
 	bank.AddCustomer(*customer2)
-	
+
 	bank.DisplayCustomers()
 }
