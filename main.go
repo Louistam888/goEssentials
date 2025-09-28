@@ -1,5 +1,3 @@
-package main
-
 // func main() {
 // 	// fmt.Printf("hello  name")
 // 	// var agency string = "Fast Track"
@@ -813,7 +811,6 @@ package main
 //     return slice
 // }
 
-
 // func DeleteFunc[S ~[]E, E any](s S, del func(E) bool) S {
 // 	for i, v := range s {
 // 		if del(v) {
@@ -831,3 +828,30 @@ package main
 // 	}
 // 	return s
 // }
+
+//258
+
+package main
+
+import "example/hello/bnk"
+
+func main() {
+	bank := bnk.NewBank("Go Bank")
+
+	customer1 := bnk.NewCustomer("Alice")
+	customer2 := bnk.NewCustomer("Bob")
+
+	account1 := bnk.NewBankAccount("834354")
+	account1.Deposit(1000.00)
+
+	account2 := bnk.NewBankAccount("8343345")
+	account2.Deposit(5000.00)
+
+	customer1.AddAccount(*account1)
+	customer2.AddAccount(*account2)
+
+	bank.AddCustomer(*customer1)
+	bank.AddCustomer(*customer2)
+	
+	bank.DisplayCustomers()
+}
